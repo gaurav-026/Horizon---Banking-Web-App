@@ -1,0 +1,2 @@
+How to setup tailwind config file to global css : 
+https://www.youtube.com/watch?v=bupetqS1SMU
