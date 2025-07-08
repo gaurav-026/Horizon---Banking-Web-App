@@ -17,42 +17,30 @@ body {
   /* ✅ Container settings (optional usage in component logic) */
   --container-padding: 2rem;
   /* --container-max-2xl: 1400px; */
-  /* Define your custom font sizes here */
+
   --font-size-10: 10px;
   --font-size-12: 12px;
   --font-size-14: 14px;
   --font-size-16: 16px;
   --font-size-18: 18px;
   --font-size-20: 20px;
-  /* New */
   --font-size-24: 24px;
-  /* New */
   --font-size-26: 26px;
-  /* New */
   --font-size-30: 30px;
-  /* New */
   --font-size-36: 36px;
-  /* New */
 
 
-
-  /* Map them to Tailwind's font-size scale */
   --text-10: var(--font-size-10) / 14px;
-  /* Format: <font-size> / <line-height> */
   --text-12: var(--font-size-12) / 16px;
   --text-14: var(--font-size-14) / 20px;
   --text-16: var(--font-size-16) / 24px;
   --text-18: var(--font-size-18) / 28px;
   --text-18: var(--font-size-18) / 28px;
-  /* Assuming 28px for consistency, adjust if needed */
+ 
   --text-20: var(--font-size-20) / 24px;
-  /* New - matching your provided line-height */
   --text-24: var(--font-size-24) / 30px;
-  /* New - matching your provided line-height */
   --text-26: var(--font-size-26) / 32px;
-  /* New - matching your provided line-height */
   --text-30: var(--font-size-30) / 38px;
-  /* New - matching your provided line-height */
   --text-36: var(--font-size-36) / 44px;
 
   /* ✅ Font families */
@@ -68,6 +56,8 @@ body {
   /* ✅ Color Tokens (from your tailwind.config.ts) */
   --color-fill-1: rgba(255, 255, 255, 0.10);
   --color-bank-gradient: #0179FE;
+  --color-gradient-mesh: url('/icons/gradient-mesh.svg');
+  --color-green-gradient: linear-gradient(90deg, #01797A 0%, #489399 100%);
 
   --color-indigo-500: #6172F3;
   --color-indigo-700: #3538CD;
@@ -109,7 +99,7 @@ body {
   --shadow-form: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
   --shadow-chart: 0px 1px 3px 0px rgba(16, 24, 40, 0.10), 0px 1px 2px 0px rgba(16, 24, 40, 0.06);
   --shadow-profile: 0px 12px 16px -4px rgba(16, 24, 40, 0.08), 0px 4px 6px -2px rgba(16, 24, 40, 0.03);
-  --shadow-credit-card: 8px 10px 16px 0px rgba(0, 0, 0, 0.05);
+  --shadow-creditCard: 8px 10px 16px 0px rgba(0, 0, 0, 0.05);
 }
 
 @theme inline {
@@ -237,8 +227,47 @@ body {
   box-sizing: border-box;
 }
 
+.text-10 {
+    @apply text-[10px] leading-[14px];
+  }
 
-@layer utilities {
+  .text-12 {
+    @apply text-[12px] leading-[16px];
+  }
+
+  .text-14 {
+    @apply text-[14px] leading-[20px];
+  }
+
+  .text-16 {
+    @apply text-[16px] leading-[24px];
+  }
+
+  .text-18 {
+    @apply text-[18px] leading-[22px];
+  }
+
+  .text-20 {
+    @apply text-[20px] leading-[24px];
+  }
+
+  .text-24 {
+    @apply text-[24px] leading-[30px];
+  }
+
+  .text-26 {
+    @apply text-[26px] leading-[32px];
+  }
+
+  .text-30 {
+    @apply text-[30px] leading-[38px];
+  }
+
+  .text-36 {
+    @apply text-[36px] leading-[44px];
+  }
+
+/* @layer utilities { */  
 
   /* Define the no-scrollbar utility */
   .no-scrollbar {
@@ -296,19 +325,20 @@ body {
   }
 
   .header-2 {
-    @apply text-18 font-semibold text-gray-900;
+    /* text-18 */
+    @apply  font-semibold text-gray-900;
   }
 
 
   /* Home */
   .home {
-    /* no-scrollbar max-xl:max-h-screen max-xl:overflow-y-scroll --> add this classname directly in jsx */
-    @apply flex w-full flex-row ;
+    /* no-scrollbar  --> add this classname directly in jsx */
+    @apply flex w-full flex-row max-xl:max-h-screen max-xl:overflow-y-scroll ;
   }
 
   .home-content {
-    /* no-scrollbar sm:px-8 py-7 lg:py-12 xl:max-h-screen xl:overflow-y-scroll --> add this classname directly in jsx */
-    @apply w-full flex-1 flex-col gap-8 px-5 ;
+    /* no-scrollbar  --> add this classname directly in jsx */
+    @apply w-full flex flex-1 flex-col gap-8 px-5 sm:px-8 py-7 lg:py-12 xl:max-h-screen xl:overflow-y-scroll;
   }
 
   .home-header {
@@ -324,11 +354,13 @@ body {
   }
 
   .total-balance-label {
-    @apply text-14 font-medium text-gray-600;
+     /* text-14  */
+    @apply  font-medium text-gray-600;
   }
 
   .total-balance-amount {
-    @apply text-24 lg:text-30 flex-1 font-semibold text-gray-900;
+    /* text-24 lg:text-30 */
+    @apply  flex-1 font-semibold text-gray-900;
   }
 
   .recent-transactions {
@@ -354,7 +386,7 @@ body {
 
   /* Right sidebar */
   .right-sidebar {
-    /* Add `!` to each utility */
+    /* no-scrollbar */
     @apply !hidden !h-screen !max-h-screen !flex-col !border-l !border-gray-200 xl:!flex !w-[355px] xl:!overflow-y-scroll;
   }
 
@@ -372,15 +404,18 @@ body {
   }
 
   .profile-details {
-    @apply flex flex-col pt-24;
+    @apply flex flex-col !pt-24;
   }
 
   .profile-name {
-    @apply text-24 font-semibold text-gray-900;
+    /* text-24 */
+    @apply  font-semibold text-gray-900;
   }
 
+
   .profile-email {
-    @apply text-16 font-normal text-gray-600;
+    /* text-16 */
+    @apply  font-normal text-gray-600;
   }
 
   .banks {
@@ -414,21 +449,23 @@ body {
   }
 
   .header-box-title {
-    @apply text-24 lg:text-30 font-semibold text-gray-900;
+    /* text-24 lg:text-30 */
+    @apply font-semibold text-gray-900;
   }
 
   .header-box-subtext {
-    @apply text-14 lg:text-16 font-normal text-gray-600;
+    /* text-14 lg:text-16 */
+    @apply font-normal text-gray-600;
   }
 
   /* Bank Card */
   .bank-card {
     /* shadow-creditCard  add addtionally */
-    @apply relative flex h-[190px] w-full max-w-[320px] justify-between rounded-[20px] border border-white bg-bank-gradient  backdrop-blur-[6px];
+    @apply relative flex shadow-creditCard h-[190px] w-full max-w-[320px] justify-between rounded-[20px] border border-white bg-bank-gradient  backdrop-blur-[6px];
   }
 
   .bank-card_content {
-    @apply relative z-10 flex size-full max-w-[228px] flex-col justify-between rounded-l-[20px] bg-gray-700 bg-bank-gradient px-5 pb-4 pt-5;
+    @apply relative z-10 flex size-full max-w-[228px] flex-col justify-between rounded-l-[20px]  bg-bank-gradient  px-5 pb-4 pt-5;
   }
 
   .bank-card_icon {
@@ -455,7 +492,8 @@ body {
   }
 
   .mobilenav-sheet_close {
-    @apply flex gap-3 items-center p-4 rounded-lg w-full max-w-60;
+    /* w-full max-w-60 */
+    @apply flex gap-3 items-center p-4 rounded-lg ;
   }
 
   /* PlaidLink */
@@ -577,7 +615,8 @@ body {
 
   .sidebar-logo {
     /* font-ibm-plex-serif  */
-    @apply 2xl:text-26 text-[26px] font-bold text-black-1 max-xl:hidden;
+    /* 2xl:text-26 text-[26px] */
+    @apply font-bold text-black-1 max-xl:hidden;
     /* Note: text-[26px] is an arbitrary value, ensure it matches --text-26 if possible for consistency */
   }
 
@@ -586,6 +625,7 @@ body {
   }
 
   .sidebar-label {
-    @apply text-16 font-semibold text-black-2 max-xl:hidden;
+    /* text-16 */
+    @apply  font-semibold text-black-2 max-xl:hidden;
   }
-}
+/* } */
