@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
+import Footer from "./Footer";
 
 const Sidebar = ({ user }: SiderbarProps) => {
   const pathname = usePathname();
@@ -32,7 +33,7 @@ const Sidebar = ({ user }: SiderbarProps) => {
             <Link
               href={items.route}
               key={items.label}
-              className={cn("sidebar-link ", { "bg-bank-gradient": isActive })}
+              className={cn("sidebar-link ", { "bank-gradientt": isActive })}
             >
               <div className="relative size-6">
                 <Image
@@ -54,7 +55,7 @@ const Sidebar = ({ user }: SiderbarProps) => {
         })}
         USER
       </nav>
-      FOOTER
+      <Footer user={user} type="desktop"/>
     </section>
   );
 };
