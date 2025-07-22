@@ -2,8 +2,13 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import BankCard from "./BankCard";
+import { countTransactionCategories } from "@/lib/utils";
+import Category from "./Category";
 
 const RightSidebar = ({ user, transactions, banks }: RightSidebarProps) => {
+  const categories = countTransactionCategories(transactions);
+  console.log(categories);
+  
   return (
     <aside className="right-sidebar no-scrollbar">
       <section className="flex flex-col pb-8 ">
@@ -11,12 +16,12 @@ const RightSidebar = ({ user, transactions, banks }: RightSidebarProps) => {
         <div className="profile">
           <div className="profile-img">
             <span className="text-5xl font-bold text-blue-500">
-              {user?.name[0] || 'G'}
+              {user?.firstName[0] || 'G'}
             </span>
           </div>
           <div className="profile-details">
             <h1 className="profile-name text-24">
-              {user?.name || 'Guest'}
+              {user?.firstName || 'Guest'} {user?.lastName}
             </h1>
             <p className="profile-email text-16">{user?.email || 'xyz@gmail.com'}</p>
           </div>
@@ -37,7 +42,7 @@ const RightSidebar = ({ user, transactions, banks }: RightSidebarProps) => {
               <BankCard
                 key={banks[0].$id}
                 account={banks[0]}
-                userName={`${user?.name}`}
+                userName={`${user?.firstName} ${user.lastName}`}
                 showBalance={false}
               />
             </div>
@@ -46,13 +51,24 @@ const RightSidebar = ({ user, transactions, banks }: RightSidebarProps) => {
                 <BankCard
                   key={banks[0].$id}
                   account={banks[0]}
-                  userName={`${user?.name}`}
+                  userName={`${user?.firstName} ${user.lastName}`}
                   showBalance={false}
                 />
               </div>
             )}
           </div>
         )}
+
+        <div className="mt-10! flex flex-1 flex-col gap-6">
+          <h2 className="header-2">
+            Top Categories
+          </h2>
+          <div className="space-y-5!">
+            {categories?.map((category, index) => (
+              <Category key={category.name} category={category} />
+            ))}
+          </div>
+        </div>
       </section>
     </aside>
   );

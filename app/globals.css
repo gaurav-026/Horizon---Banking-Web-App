@@ -370,7 +370,7 @@ body {
 }
 
 .recent-transactions {
-  @apply flex w-full flex-col gap-6;
+  @apply flex lg:max-w-[calc(100vw-720px)] w-full flex-col gap-6;
 }
 
 .view-all-btn {
@@ -382,7 +382,8 @@ body {
 }
 
 .recent-transactions-label {
-  @apply text-20 md:text-24 font-semibold text-gray-900;
+  /* text-20 md:text-24 */
+  @apply  font-semibold text-gray-900;
 }
 
 .recent-transactions-tablist {
@@ -435,7 +436,7 @@ body {
 
 /* My Banks */
 .transactions {
-  @apply flex max-h-screen w-full flex-col gap-8 overflow-y-scroll bg-gray-25 p-8 xl:py-12;
+  @apply flex max-h-screen w-full flex-col gap-8 overflow-y-scroll bg-gray-25 p-8 xl:py-12!;
 }
 
 .transactions-header {
@@ -443,11 +444,11 @@ body {
 }
 
 .transactions-account {
-  @apply flex flex-col justify-between gap-4 rounded-lg border-y bg-blue-600 px-4 py-5 md:flex-row;
+  @apply flex flex-col justify-between gap-4 rounded-lg border-y bg-blue-600 px-4! py-5! md:flex-row;
 }
 
 .transactions-account-balance {
-  @apply flex justify-center items-center flex-col gap-2 rounded-md bg-blue-25/20 px-4 py-2 text-white;
+  @apply flex justify-center items-center flex-col gap-2 rounded-md bg-blue-25/20 px-4! py-2! text-white;
 }
 
 .header-box {
@@ -485,7 +486,7 @@ body {
 
 /* Category Badge */
 .category-badge {
-  @apply flex justify-center items-center truncate w-fit gap-1 rounded-2xl border-[1.5px] py-[2px] pl-1.5 pr-2;
+  @apply flex justify-center items-center truncate w-fit gap-1 rounded-2xl border-[1.5px] py-[2px]! pl-1.5! pr-2!;
 }
 
 .banktab-item {
@@ -509,11 +510,11 @@ body {
 }
 
 .plaidlink-ghost {
-  @apply flex cursor-pointer items-center justify-center gap-3 rounded-lg px-3 py-7 hover:bg-white lg:justify-start;
+  @apply flex cursor-pointer items-center justify-center gap-3 rounded-lg px-3 py-7 hover:bg-white lg:justify-start shadow-none;
 }
 
 .plaidlink-default {
-  @apply flex !justify-start cursor-pointer gap-3 rounded-md !bg-transparent flex-row;
+  @apply flex !justify-start cursor-pointer gap-3 rounded-md !bg-transparent flex-row shadow-none;
 }
 
 /* Auth */
@@ -565,11 +566,11 @@ body {
 }
 
 .payment-transfer_form-details {
-  @apply flex flex-col gap-1 border-t border-gray-200 pb-5 pt-6;
+  @apply flex flex-col gap-1 border-t border-gray-200 pb-5! pt-6!;
 }
 
 .payment-transfer_btn-box {
-  @apply mt-5 flex w-full max-w-[850px] gap-3 border-gray-200 py-5;
+  @apply mt-5 flex w-full max-w-[850px] gap-3 border-gray-200 py-5!;
 }
 
 .payment-transfer_btn {
